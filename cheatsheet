@@ -1,0 +1,90 @@
+Almost every command can be edited by adding a number in front of it. 
+If you think it makes sense, then try it. For ex. yy is copy a line. 
+3yy is copy three lines. Same for indent, same for deleting words, etc.
+
+###################################
+Navigation and Basics:
+###################################
+----------------------------------------------------------
+i             | Go into insert mode at location of cursor
+I             | Go into insert mode at beginning of line
+a             | Go into insert mode at location after cursor
+A             | Go into insert mode at end of line
+----------------------------------------------------------
+u             | undo
+Ctrl + r      | redo
+----------------------------------------------------------
+h,j,k,l       | get used to it. stop using arrow keys
+----------------------------------------------------------
+w, b          | Skip word forward, skip word back. 
+              | If you capitalize these characters, skips full words
+----------------------------------------------------------
+{line #}G     | Skip to this line in the file
+gg            | Skip to top of file
+G             | Skip to end of file
+""            | Type this and you'll skip to the last place your cursor was if
+              | you made a jump
+----------------------------------------------------------
+Ctrl + f      | Move forward one whole page
+Ctrl + b      | Move back one whole page
+Ctrl + d      | Move forward one half page
+Ctrl + u      | Move up one half page
+
+###################################
+Copying, pasting, editing, magic
+###################################
+----------------------------------------------------------
+yy            | copy line
+yw            | copy word
+dd            | delete line 
+dw            | delete word 
+cc            | delete line and put cursor in insert mode ("change line") 
+cw            | delete word and put cursor into insert mode ("change word")
+p             | paste. Use capital P for paste above.
+>>            | Indent this line. 
+o             | Open line below. O is open line above
+d             | Delete character under cursor
+s             | Delete character under cursor and enter insert mode
+
+Note, try cW, dW, etc. You notice that the capital W lets you edit bigger chunks
+----------------------------------------------------------
+ci {bracket or quote} | Take for example: "(hello)". Try type: ci "
+                                                     Try type: ci ) or ci (
+                        Notice that it will completely clear the inside of it
+dt {insert character} | Delete to character specified 
+ct {insert character} | Delete to the character specified and go into insert mode
+
+
+
+
+###################################
+Word Searching, Extra Tricks
+###################################
+*                     | Type this on the word your cursor is on. Jumps to other
+                          occurrences of word
+:%s/{word1}/{word2}/gc | Replace all occurrences of word1 with word2. The "c" in 
+                        | "gc" means "confirm". It will prompt you for every chance
+                        | so you don't change occurences you don't want to
+/{word}               | Search all instances of word. Type "n" to go to the next. Type
+                        | "?" and then "n" to go backwards
+
+----------------------------------------------------------
+Ctrl V + move cursor   | 
+with j or k, and then  | Edit all of these lines at once
+type I.                |
+
+
+###################################
+Multi Window Editing
+###################################
+Super powerful. You can edit THE SAME file in two windows which makes life easier
+when you want to reference certain parts of the code without losing your current place.
+When you edit one file, the other will be edited in real time to keep the two consistent.
+
+You can also do this with different files too of course. Split editing allows easy copy
+and pasting across windows. Since vim's copy and pasting is arguably really shitty.
+
+:vsplit   | Open a vertical split window
+:split    | Open a horizontally split window
+Ctrl + ww | Switch between the windows. I like aliasing this to Ctrl+W beacuse its easier
+
